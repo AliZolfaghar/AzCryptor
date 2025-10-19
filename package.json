@@ -1,6 +1,6 @@
 {
   "name": "azcryptor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Secure hybrid file encryption CLI tool using AES + RSA",
   "type": "module",
   "main": "bin/azcryptor.js",
