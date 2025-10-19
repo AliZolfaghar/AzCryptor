@@ -1,0 +1,33 @@
+{
+  "name": "azcryptor",
+  "version": "1.0.0",
+  "description": "Secure hybrid file encryption CLI tool using AES + RSA",
+  "type": "module",
+  "main": "bin/azcryptor.js",
+  "bin": {
+      "azcryptor": "./bin/azcryptor.js"
+    },
+    
+ "dependencies": {
+    "commander": "^11.0.0"
+  },
+
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node bin/azcryptor.js" , 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AliZolfaghar/AzCryptor.git"
+  },
+  "keywords": [],
+  "author": "Ali Zolfaghar (azolfaghar@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AliZolfaghar/AzCryptor/issues"
+  },
+  "homepage": "https://github.com/AliZolfaghar/AzCryptor#readme"
+}
