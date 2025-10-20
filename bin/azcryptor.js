@@ -14,6 +14,7 @@ program
   .command('encrypt')
   .requiredOption('-i, --input <path>', 'مسیر فایل ورودی')
   .requiredOption('-o, --output <path>', 'مسیر فایل خروجی رمزنگاری‌شده')
+  .requiredOption('-m, --meta <dir>', 'مسیر پوشه ذخیره فایل‌های کلید و IV')
   .action(encrypt);
 
 program
