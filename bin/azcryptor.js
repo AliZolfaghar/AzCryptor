@@ -8,7 +8,7 @@ const program = new Command();
 program
   .name('azcryptor')
   .description('🔐 AzCryptor - Hybrid AES + RSA file encryption CLI')
-  .version('1.0.0');
+  .version('1.0.4');
 
 program
   .command('encrypt')

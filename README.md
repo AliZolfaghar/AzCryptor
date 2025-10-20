@@ -5,57 +5,68 @@
  / ___ |/ /_/ /___/ /  / /_/ / /_/ / /_/ /_/ / /    
 /_/  |_/___/\____/_/   \__, / .___/\__/\____/_/     
                       /____/_/                      
-
+(azolfaghar@gmail.com)
 ```
 
-# 🔐 AzCryptor
+# AzCryptor 
 
-**AzCryptor** - راه‌حل امن رمزنگاری فایل از A تا Z in english : 
+**AzCryptor** - Secure File Encryption Solution 
 
 
-یک ابزار خط فرمان (CLI) قدرتمند برای رمزنگاری و رمزگشایی فایل‌ها با استفاده از الگوریتم ترکیبی **AES + RSA**.
-
----
-
-## ✨ ویژگی‌های کلیدی
-
-- 🔒 **رمزنگاری ترکیبی**: AES-256 برای داده‌ها + RSA-2048 برای کلیدها
-- ⚡ **تولید خودکار کلید**: ایجاد خودکار جفت کلید RSA در زمان رمزنگاری
-- 🛡️ **مدیریت امن کلیدها**: ذخیره ایمن کلید خصوصی برای رمزگشایی
-- 📁 **پشتیبانی از فایل‌های حجیم**: مناسب برای بکاپ، آرشیو و دیتابیس
-- 🌐 **چندسکویی**: قابل اجرا در ویندوز، لینوکس و مک
-- 🎯 **رابط کاربری ساده**: خط فرمان سریع و آسان
+command-line (CLI) tool for encrypting and decrypting files using the hybrid AES + RSA algorithm.
 
 ---
 
-## 🚀 نصب و راه‌اندازی
+## Key Features
+
+- Hybrid Encryption: AES-256 for data + RSA-2048 for keys
+- Automatic Key Generation: Automatic RSA key pair generation during encryption
+- Secure Key Management: Secure storage of private keys for decryption
+- Large File Support: Suitable for backups, archives, and databases
+- Cross-Platform: Runs on Windows, Linux, and Mac
+- Simple Interface: Fast and easy command-line interface
+
+---
+
+## Installation 
 
 npm install azcryptor --global 
 
-## استفاده : 
+## Usage : 
 
-azcryptor encrypt -i <مسیر-فایل-ورودی> -o <مسیر-فایل-خروجی-رمزنگاری-شده>
-azcryptor decrypt -i <مسیر-فایل-رمزنگاری-شده> -o <مسیر-فایل-خروجی-رمزگشایی-شده>
+To encrypt a file : 
+```
+azcryptor encrypt -i input-file-name -o encrypted-output-file-name -m meta-files-output-folder
+``` 
 
-d:\output\
-├── 📄 myFile.rar                 ← فایل اصلی
-├── 🔒 myFile.rar.enc             ← فایل رمزنگاری‌شده
-├── 🗝️ myFile.rar.enc.key         ← کلید رمز AES
-├── 🔑 myFile.rar.enc.iv          ← مقدار IV
-├── 🛡️ myFile.rar.enc.private.pem ← کلید خصوصی RSA
-└── 📦 myFile_restored.rar        ← فایل بازیابی‌شده
+To decrypt : 
+```
+Please copy the meta files along with the encrypted file and then proceed:
+azcryptor decrypt -i encrypted-file-name -o decrypted-output-file-name
+```
 
+D:\input
+└── myFile.rar ← Original file
 
-<hr>
+D:\output
+└── myFile.rar.enc ← Encrypted file
 
-# ⚠️ نکات امنیتی مهم
-کلید خصوصی (.private.pem) را در جای امن نگهداری کنید
+D:\meta
+├── myFile.rar.enc.key ← AES encryption key
+├── myFile.rar.enc.iv ← IV value
+└── myFile.rar.enc.private.pem ← RSA private key
 
-بدون کلید خصوصی، رمزگشایی غیرممکن است
+D:\decrypted
+└── myFile_restored.rar ← Restored file
 
-فایل‌های .key و .iv را برای امنیت بیشتر رمزنگاری کنید
+--- 
 
-توجه: AzCryptor فقط محتوای فایل را رمزنگاری می‌کند، نه نام یا مسیر آن
+# Important Security Notes
 
-
+- The encryption keys are generated each time, and you will need these exact same files for decryption.
+- Keep the encryption keys in a secure location.
+- Without encryption keys , decryption is impossible.
+- For enhanced security, encrypt the .key and .iv files
+- Do not send the encryption keys along with the encrypted file.
+- Note: AzCryptor only encrypts file contents, not file names or paths
 
