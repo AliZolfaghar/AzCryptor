@@ -5,18 +5,16 @@
   "type": "module",
   "main": "bin/azcryptor.js",
   "bin": {
-      "azcryptor": "./bin/azcryptor.js"
-    },
-    
- "dependencies": {
+    "azcryptor": "./bin/azcryptor.js"
+  },
+  "dependencies": {
     "commander": "^11.0.0"
   },
-
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "start": "node bin/azcryptor.js" , 
+    "start": "node bin/azcryptor.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
