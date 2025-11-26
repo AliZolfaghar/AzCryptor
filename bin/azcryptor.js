@@ -12,28 +12,28 @@ program
 
 program
   .command('encrypt')
-  .requiredOption('-i, --input <path>', 'مسیر فایل ورودی')
-  .requiredOption('-o, --output <path>', 'مسیر فایل خروجی رمزنگاری‌شده')
-  .requiredOption('-m, --meta <dir>', 'مسیر پوشه ذخیره فایل‌های کلید و IV')
+  .requiredOption('-i, --input <path>', 'Input file path')
+  .requiredOption('-o, --output <path>', 'Encrypted output file path')
+  .requiredOption('-m, --meta <dir>', 'Directory to save key and IV files')
   .action(encrypt);
 
 program
   .command('decrypt')
-  .requiredOption('-i, --input <path>', 'مسیر فایل رمزنگاری‌شده')
-  .requiredOption('-o, --output <path>', 'مسیر فایل خروجی رمزگشایی‌شده')
+  .requiredOption('-i, --input <path>', 'Path to the encrypted file')
+  .requiredOption('-o, --output <path>', 'Path to the decrypted output file')
   .action(decrypt);
 
 program
   .command('enc')
-  .requiredOption('-i, --input <path>', 'مسیر فایل ورودی')
-  .requiredOption('-o, --output <path>', 'مسیر فایل خروجی رمزنگاری‌شده')
-  .requiredOption('-m, --meta <dir>', 'مسیر پوشه ذخیره فایل‌های کلید و IV')
+  .requiredOption('-i, --input <path>', 'Input file path')
+  .requiredOption('-o, --output <path>', 'Encrypted output file path')
+  .requiredOption('-m, --meta <dir>', 'Directory to save key and IV files')
   .action(encrypt);
 
 program
   .command('dec')
-  .requiredOption('-i, --input <path>', 'مسیر فایل رمزنگاری‌شده')
-  .requiredOption('-o, --output <path>', 'مسیر فایل خروجی رمزگشایی‌شده')
+  .requiredOption('-i, --input <path>', 'Path to the encrypted file')
+  .requiredOption('-o, --output <path>', 'Path to the decrypted output file')
   .action(decrypt);
 
   program.parse();
