@@ -9,41 +9,86 @@
 ```
 
 # AzCryptor 
+# 🔐 AzCryptor
 
-**AzCryptor** - Secure File Encryption Solution 
-
-
-command-line (CLI) tool for encrypting and decrypting files using the hybrid AES + RSA algorithm.
+**AzCryptor** is a robust Command Line Interface (CLI) tool for performing hybrid file encryption and decryption. It combines the speed of AES-256 stream ciphering with the security of RSA-2048 public key cryptography to secure sensitive data at rest.
 
 ---
-
-## Key Features
-
-- Hybrid Encryption: AES-256 for data + RSA-2048 for keys
-- Automatic Key Generation: Automatic RSA key pair generation during encryption
-- Secure Key Management: Secure storage of private keys for decryption
-- Large File Support: Suitable for backups, archives, and databases
-- Cross-Platform: Runs on Windows, Linux, and Mac
-- Simple Interface: Fast and easy command-line interface
+## ✨ Key Features
+*   🛡️ **Hybrid Encryption:** Uses AES-256 (symmetric) for bulk data encryption and RSA-2048 (asymmetric) to protect the session key, offering maximum security with high throughput.
+*   🔑 **Automated Key Management:** Automatically generates a full cryptographic chain during encryption: an encrypted session key (`.key`), an Initialization Vector (`.iv`), and the private RSA key (`.private.pem`).
+*   💾 **Streaming Support:** Uses Node.js streams for efficient handling of large files, preventing memory overload.
+*   🔄 **Utility Functionality:** Includes a utility to easily Base64-encode files into common import formats (CSV, JSON) for transfer or storage.
 
 ---
+## 🚀 Getting Started
 
-## Installation 
+### Prerequisites
+1.  **Node.js:** Ensure you have Node.js installed.
+2.  **Installation:** Use npm to install AzCryptor globally:
+    ```bash
+    npm install azcryptor --global
+    # Alternatively, if using yarn/pnpm, update the command accordingly.
+    ```
 
-npm install azcryptor --global 
+### 🛡️ Critical Security Note (READ FIRST)
+The cryptographic keys are **generated uniquely every time** you run the `encrypt` command. For successful decryption, you *must* retain all generated metadata files alongside the encrypted file. Losing any of these files makes recovery impossible:
+1.  `[filename].enc.key`: The AES encryption key (wrapped by RSA Public Key).
+2.  `[filename].enc.iv`: The Initialization Vector used for the stream cipher.
+3.  `[filename].enc.private.pem`: **The private RSA key.**
 
-## Usage : 
+---
+## ⚙️ Usage Guide
 
-To encrypt a file : 
+### 1. Encrypting a File (Recommended)
+This command performs the full hybrid encryption process and saves all necessary keys to a specified metadata directory (`-m`).
+
+**Command:**
+```bash
+azcryptor encrypt --input <path/to/original_file> --output <path/to/encrypted_file> --meta <directory_for_keys>
 ```
-azcryptor encrypt -i input-file-name -o encrypted-output-file-name -m meta-files-output-folder
-``` 
 
-To decrypt : 
+**Example:** Encrypting `data.txt` and storing keys in `./metadata`:
+```bash
+azcryptor encrypt -i ./data.txt -o ./data.enc -m ./metadata
 ```
-Please copy the meta files along with the encrypted file and then proceed:
-azcryptor decrypt -i encrypted-file-name -o decrypted-output-file-name
+**Output Files Generated (in `<directory_for_keys>`):**
+*   `data.enc.key`
+*   `data.enc.iv`
+*   `data.enc.private.pem`
+
+### 2. Decrypting a File
+You must place the encrypted file (`.enc`) and all associated metadata files (`.key`, `.iv`, `.private.pem`) in a location before running this command.
+
+**Command:**
+```bash
+azcryptor decrypt --input <path/to/encrypted_file> --output <path/to/decrypted_file>
 ```
+
+### 3. Base64 Encoding Utility (Transfer Format)
+Use the `base64ify` tool to encode any file into formats suitable for data exchange (e.g., embedding in a database or transferring via JSON).
+
+**Usage:**
+```bash
+node base64ify.js <path/to/file>
+```
+This will generate:
+*   `<original_file>.b64` (Raw Base64)
+*   `<original_file>.import.csv` (CSV format for easy import)
+*   `<original_file>.import.json` (JSON key-value pair structure)
+
+---
+## 📜 Command Reference
+
+| Command | Description | Required Flags | Action |
+| :--- | :--- | :--- | :--- |
+| `azcryptor encrypt` | Encrypts a file using AES/RSA and saves keys. | `-i`, `-o`, `-m` | Write |
+| `azcryptor decrypt` | Decrypts a file using the saved private key. | `-i`, `-o` | Read/Write |
+| `azcryptor enc` / `azcryptor dec` | Aliases for `encrypt` and `decrypt`. | N/A | Shortcut |
+
+***
+**Author:** Ali Zolfaghar 
+[Link to GitHub Repo]
 
 D:\input
 └── myFile.rar ← Original file
