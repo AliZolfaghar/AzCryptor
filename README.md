@@ -87,8 +87,8 @@ This will generate:
 | `azcryptor enc` / `azcryptor dec` | Aliases for `encrypt` and `decrypt`. | N/A | Shortcut |
 
 ***
-**Author:** Ali Zolfaghar 
-[Link to GitHub Repo]
+
+# File Structure After Encryption
 
 D:\input
 └── myFile.rar ← Original file
