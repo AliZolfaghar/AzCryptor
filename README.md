@@ -89,7 +89,7 @@ This will generate:
 ***
 
 # File Structure After Encryption
-
+```
 D:\input
 └── myFile.rar ← Original file
 
@@ -103,7 +103,7 @@ D:\meta
 
 D:\decrypted
 └── myFile_restored.rar ← Restored file
-
+```
 --- 
 
 # Important Security Notes
