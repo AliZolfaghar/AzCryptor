@@ -120,6 +120,36 @@ decrypted/
 | `decrypt` / `dec` | `-i`, `-o` | `-m` | رمزگشایی (meta کنار فایل یا از `-m`) |
 | `base64ify` | `<file>` | | تبدیل به base64/CSV/JSON |
 
+## نصب از Git (بدون پکیج npm)
+
+نصب دستور سراسری `azcryptor` از سورس GitHub، بدون نیاز به پکیج روی رجیستری npm:
+
+```bash
+# ویندوز (PowerShell / CMD)
+curl -L -o install-from-git.bat https://raw.githubusercontent.com/AliZolfaghar/AzCryptor/main/install-from-git.bat
+install-from-git.bat
+
+# لینوکس / مک
+curl -fsSL -o install-from-git.sh https://raw.githubusercontent.com/AliZolfaghar/AzCryptor/main/install-from-git.sh
+chmod +x install-from-git.sh
+./install-from-git.sh
+```
+
+آرگومان‌های اختیاری:
+
+```bash
+# مسیر نصب دلخواه
+install-from-git.bat D:\tools\AzCryptor
+./install-from-git.sh ~/tools/AzCryptor
+
+# مسیر + آدرس ریپو
+install-from-git.bat D:\tools\AzCryptor https://github.com/AliZolfaghar/AzCryptor.git
+./install-from-git.sh ~/tools/AzCryptor https://github.com/AliZolfaghar/AzCryptor.git
+```
+
+مسیر پیش‌فرض کلون: `%USERPROFILE%\AzCryptor` / `~/AzCryptor`.  
+نیازمندی‌ها: `git`، Node.js 18+ و ابزار `npm` (فقط برای dependencyهای محلی — نه برای دانلود پکیج `azcryptor` از رجیستری).
+
 ## نصب و تست لوکال (نگهدارندگان)
 
 نصب/به‌روزرسانی دستور سراسری `azcryptor` از همین پوشه و اجرای تست سریع:

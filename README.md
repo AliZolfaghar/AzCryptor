@@ -120,6 +120,36 @@ decrypted/
 | `decrypt` / `dec` | `-i`, `-o` | `-m` | Decrypt file (meta beside input or from `-m`) |
 | `base64ify` | `<file>` | | Encode file to base64/CSV/JSON |
 
+## Install from Git (no npm package)
+
+Install the global `azcryptor` CLI from the GitHub source instead of the npm registry package:
+
+```bash
+# Windows (PowerShell / CMD)
+curl -L -o install-from-git.bat https://raw.githubusercontent.com/AliZolfaghar/AzCryptor/main/install-from-git.bat
+install-from-git.bat
+
+# Linux / macOS
+curl -fsSL -o install-from-git.sh https://raw.githubusercontent.com/AliZolfaghar/AzCryptor/main/install-from-git.sh
+chmod +x install-from-git.sh
+./install-from-git.sh
+```
+
+Optional arguments:
+
+```bash
+# custom destination
+install-from-git.bat D:\tools\AzCryptor
+./install-from-git.sh ~/tools/AzCryptor
+
+# custom destination + repo URL
+install-from-git.bat D:\tools\AzCryptor https://github.com/AliZolfaghar/AzCryptor.git
+./install-from-git.sh ~/tools/AzCryptor https://github.com/AliZolfaghar/AzCryptor.git
+```
+
+Default clone path: `%USERPROFILE%\AzCryptor` / `~/AzCryptor`.  
+Requires: `git`, Node.js 18+, and the `npm` CLI (only for local dependencies — not for downloading the `azcryptor` package from the registry).
+
 ## Local install and test (maintainers)
 
 Install/update the global `azcryptor` CLI from this folder and run a quick smoke test:
