@@ -120,6 +120,19 @@ decrypted/
 | `decrypt` / `dec` | `-i`, `-o` | `-m` | Decrypt file (meta beside input or from `-m`) |
 | `base64ify` | `<file>` | | Encode file to base64/CSV/JSON |
 
+## Local install and test (maintainers)
+
+Install/update the global `azcryptor` CLI from this folder and run a quick smoke test:
+
+```bash
+# Windows
+install-local.bat
+
+# Linux / macOS
+chmod +x install-local.sh
+./install-local.sh
+```
+
 ## Publishing (maintainers)
 
 Set the version in `package.json`, then:

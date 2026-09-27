@@ -120,6 +120,19 @@ decrypted/
 | `decrypt` / `dec` | `-i`, `-o` | `-m` | رمزگشایی (meta کنار فایل یا از `-m`) |
 | `base64ify` | `<file>` | | تبدیل به base64/CSV/JSON |
 
+## نصب و تست لوکال (نگهدارندگان)
+
+نصب/به‌روزرسانی دستور سراسری `azcryptor` از همین پوشه و اجرای تست سریع:
+
+```bash
+# ویندوز
+install-local.bat
+
+# لینوکس / مک
+chmod +x install-local.sh
+./install-local.sh
+```
+
 ## انتشار روی npm (نگهدارندگان)
 
 نسخه را در `package.json` تنظیم کنید، سپس:
